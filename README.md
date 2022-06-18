@@ -1,2 +1,2 @@
 # learn_kafka
-kafka笔记
+the notes of learning kafka
