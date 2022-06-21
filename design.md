@@ -59,3 +59,21 @@
 ## 消费者
 
 - kafka消费者使用“fetch”请求表示消费者想消费。
+- 消费者 会在日志里面强调 每个请求中收到 一个 offset
+- 能够很好控制位置，重新消费 如果有需要
+
+### 4.1 Push vs Pull
+
+-   Tradition Design
+  
+  - Producer push messages to kafka
+  
+  - consumer pull message from kafka
+
+- To mark message which has been consumered
+  
+  - kafka 不靠offset ，每条消息加字段 ，可能的问题
+    
+    -  如果在改字段之前崩溃，就可能消费两次消息
+    
+    - 修改上面一个问题，先锁定消息，收到ack再标记ok；但是带来新的性能问题
