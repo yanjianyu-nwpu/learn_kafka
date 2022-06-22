@@ -77,3 +77,9 @@
     -  如果在改字段之前崩溃，就可能消费两次消息
     
     - 修改上面一个问题，先锁定消息，收到ack再标记ok；但是带来新的性能问题
+  
+  - kafka 解决方案不一样 每个topic 分成多个有顺序的partition 分区   ，每个分区再每个时候都会被指定的消费者消费
+  
+  - 者意味每个partition 对于consumer 有一个offset，非常好用，如果consumer 有bug可以非常快的rewind
+
+## Replication
